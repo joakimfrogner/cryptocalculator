@@ -1,0 +1,5 @@
+__pycache__
+*_b.json
+.DS_Store
+coindata.json
+settings.py
