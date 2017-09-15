@@ -44,7 +44,7 @@ def plot():
         outfile = "out/{}.png".format(str(datetime.date.today()))
         plt.savefig(outfile)
         plt.clf()
-        plt.savefig("latest.png")
+        plt.savefig("out/latest.png")
         print("Saved graph as {}".format(outfile))
     
 
