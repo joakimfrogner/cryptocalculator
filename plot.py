@@ -1,7 +1,8 @@
+import sys
 import datetime
+
 import matplotlib
 matplotlib.use('TkAgg')
-
 from matplotlib.dates import DateFormatter
 from matplotlib import pyplot as plt
 
@@ -16,12 +17,10 @@ def plot():
     x = [datetime.datetime.strptime(x["date"], "%Y-%m-%d").date() for x in log]
     y_spent = [x["spent"] for x in log]
     y_if_sold = [x["if_sold"] for x in log]
-    #y_gained = [int(x["if_sold"]) - int(x["spent"]) for x in log]
 
     fig, ax = plt.subplots()
     ax.plot(x, y_spent, label="Invested ({})".format(conv))
     ax.plot(x, y_if_sold, label="If sold now ({})".format(conv))
-    #ax.plot(x, y_gained, label="Gained ({})".format(conv))
 
     fig.autofmt_xdate()
     ax.xaxis.set_major_formatter(DateFormatter("%Y-%m-%d"))
@@ -31,7 +30,13 @@ def plot():
     plt.title("Data for investment in cryptocurrencies")
     plt.legend()
     
-    plt.show()
+    if len(sys.argv) > 1 and sys.argv[1] == "--show":
+        plt.show()
+    else:
+        if not os.path.exists("out"):
+            os.makedirs("out")
+            
+        plt.savefig("out/{}.png".format(str(datetime.date.today())))
     
 
 if __name__ == '__main__':

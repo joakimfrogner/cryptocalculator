@@ -3,3 +3,4 @@ __pycache__
 .DS_Store
 coindata.json
 settings.py
+*.png
