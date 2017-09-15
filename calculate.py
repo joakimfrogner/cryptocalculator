@@ -93,7 +93,7 @@ if __name__ == '__main__':
                 found_today = True
 
         if not found_today:
-            data["log"]["data"].append({ "spent": spent, "if_sold": str(int(total)) })
+            data["log"]["data"].append({ "date": str(datetime.date.today()),"spent": spent, "if_sold": str(int(total)) })
 
         f.seek(0)
         json.dump(data, f)
