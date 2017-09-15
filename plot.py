@@ -43,6 +43,7 @@ def plot():
 
         outfile = "out/{}.png".format(str(datetime.date.today()))
         plt.savefig(outfile)
+        plt.savefig("latest.png")
         print("Saved graph as {}".format(outfile))
     
 
