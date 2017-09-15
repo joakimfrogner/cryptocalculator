@@ -105,4 +105,4 @@ if __name__ == '__main__':
             print("Gained:            {} {}".format(conv, int(total) - int(spent)))
             print("----------------------------")
             pprint(amounts)
-            input()
+            #input()
