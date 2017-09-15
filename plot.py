@@ -2,7 +2,12 @@ import sys
 import datetime
 
 import matplotlib
-matplotlib.use('TkAgg')
+
+if len(sys.argv) > 1 and sys.argv[1] == "--show":
+    matplotlib.use('TkAgg')
+else:
+    matplotlib.use('Agg')
+
 from matplotlib.dates import DateFormatter
 from matplotlib import pyplot as plt
 
@@ -35,7 +40,7 @@ def plot():
     else:
         if not os.path.exists("out"):
             os.makedirs("out")
-            
+
         plt.savefig("out/{}.png".format(str(datetime.date.today())))
     
 
