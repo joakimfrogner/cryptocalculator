@@ -41,7 +41,9 @@ def plot():
         if not os.path.exists("out"):
             os.makedirs("out")
 
-        plt.savefig("out/{}.png".format(str(datetime.date.today())))
+        outfile = "out/{}.png".format(str(datetime.date.today()))
+        plt.savefig(outfile)
+        print("Saved graph as {}".format(outfile))
     
 
 if __name__ == '__main__':
